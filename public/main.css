@@ -1,0 +1,171 @@
+/* ==========================================================================
+   GEEKY BOXY THEME (style.css)
+   ========================================================================== */
+
+/* --- Google Fonts --- */
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&family=Space+Grotesk:wght@400;700&display=swap');
+
+/* --- Root Variables --- */
+:root {
+    --bg-color: #0f1115;
+    --surface-color: #1a1d24;
+    --accent-primary: #00ff66;   /* Matrix/Geek Green */
+    --accent-secondary: #00f0ff; /* Cyber Cyan */
+    --text-main: #e2e8f0;
+    --text-muted: #94a3b8;
+    --border-width: 3px;
+    --hard-shadow: 6px 6px 0px #000000;
+    --hard-shadow-hover: 3px 3px 0px #000000;
+}
+
+/* --- Base Resets & Typography --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: 'Space Grotesk', sans-serif;
+    padding: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* --- Header Section --- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+
+/* Override the inline float style from original HTML */
+header div[style*="float: right"] {
+    float: none !important;
+    margin-top: 0 !important;
+    display: flex;
+    gap: 10px;
+}
+
+h1 {
+    font-family: 'Fira Code', monospace;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--accent-primary);
+    text-transform: uppercase;
+    letter-spacing: -1px;
+}
+
+h1::before {
+    content: "> ";
+    color: var(--accent-secondary);
+}
+
+/* --- Geeky Boxy Buttons --- */
+button {
+    font-family: 'Fira Code', monospace;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #000000;
+    background-color: var(--accent-secondary);
+    border: var(--border-width) solid #000000;
+    padding: 0.6rem 1.2rem;
+    cursor: pointer;
+    border-radius: 0; /* Strict boxy feel */
+    box-shadow: var(--hard-shadow);
+    transition: all 0.1s ease;
+    text-transform: uppercase;
+}
+
+button:hover {
+    transform: translate(3px, 3px);
+    box-shadow: var(--hard-shadow-hover);
+    background-color: var(--accent-primary);
+}
+
+button:active {
+    transform: translate(6px, 6px);
+    box-shadow: 0px 0px 0px #000000;
+}
+
+/* Customize specific buttons if desired */
+button:last-of-type {
+    background-color: #ff0055; /* Delete button accent */
+    color: #ffffff;
+}
+
+/* --- Separator --- */
+hr {
+    border: none;
+    border-top: var(--border-width) dashed var(--text-muted);
+    margin: 2rem 0;
+}
+
+/* --- Blog Container & Uplifted Items --- */
+#blog-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+.blog-item {
+    background-color: var(--surface-color);
+    border: var(--border-width) solid #000000;
+    padding: 2rem;
+    box-shadow: var(--hard-shadow);
+    transform: translate(-4px, -4px); /* Creates the "uplifted" look */
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Code-bracket accent on hover */
+.blog-item:hover {
+    transform: translate(-1px, -1px);
+    box-shadow: var(--hard-shadow-hover);
+    border-color: var(--accent-primary);
+}
+
+.blog-item h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.6rem;
+    color: #ffffff;
+    margin-bottom: 1rem;
+}
+
+.blog-item p {
+    color: var(--text-muted);
+    font-family: 'Fira Code', monospace;
+    font-size: 0.95rem;
+}
+
+/* Decorative tech line on the left of each blog item */
+.blog-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 6px;
+    height: 100%;
+    background-color: var(--accent-primary);
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 600px) {
+    body {
+        padding: 1rem;
+    }
+    header div[style*="float: right"] {
+        width: 100%;
+        flex-direction: column;
+    }
+    button {
+        width: 100%;
+    }
+}
