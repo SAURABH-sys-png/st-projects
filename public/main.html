@@ -10,39 +10,27 @@
     <header>
       <h1>Def-Blogs</h1>
       <div style="float: right; margin-top: -50px">
-        <button type="button">Add Blog</button>
-        <button type="button">Edit Blog</button>
-        <button type="button">Delete Blog</button>
+        <button id="add-btn" type="button">Add Blog</button>
+        <button id="edit-btn" type="button">Edit Blog</button>
+        <button id="delete-btn" type="button">Delete Blog</button>
       </div>
     </header>
 
     <hr />
 
-    <div id="blog-container">
-      <article class="blog-item">
-        <h2>Getting Started with HTML</h2>
-        <p>
-          This is the content summary for the first blog post. It explains the
-          basic structure of a web page.
-        </p>
-      </article> 
+    <section id="form-section" class="hidden">
+      <h2 id="form-heading">Add a New Blog</h2>
+      <form id="blog-form">
+        <input id="blog-id" type="hidden" />
+        <label for="title">Title</label>
+        <input id="title" type="text" required />
+        <label for="content">Content</label>
+        <textarea id="content" rows="5" required></textarea>
+        <button type="submit">Save Blog</button>
+      </form>
+    </section>
 
-      <article class="blog-item">
-        <h2>The Importance of Semantic Tags</h2>
-        <p>
-          This is the content summary for the second blog post. Semantic tags
-          help with SEO and accessibility.
-        </p>
-      </article>
-
-      <article class="blog-item">
-        <h2>Why Clean Structure Matters</h2>
-        <p>
-          This is the content summary for the third blog post. Keeping your HTML
-          clean makes styling with CSS much easier later on.
-        </p>
-      </article>
-    </div>
+    <div id="blog-container"></div>
     <script src="script.js"></script>
   </body>
 </html>
